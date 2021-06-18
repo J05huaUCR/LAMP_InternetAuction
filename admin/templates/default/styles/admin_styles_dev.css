@@ -1,0 +1,335 @@
+@charset "utf-8";
+/* CSS Document */
+
+html {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000;
+	text-align: center;
+	margin:10px;
+	line-height:20px;
+}
+
+.container {
+	/*background-color: #FCC;*/
+	width: 100%;
+	margin:0px;/*20*/
+	/*margin: 0 auto 0 auto;  the auto value on the sides, coupled with the width, centers the layout */
+}
+
+.content_wrap {
+	/*background-color: #F00;*/
+	margin:0px;/*20*/
+	text-align:left;
+}
+
+h3 {
+	/*background-color: #9B9;*/
+	/*margin-top: -4px;*/
+	color: #F00;	
+}
+
+a {
+	color: #000;
+}
+
+a:hover {
+	color: #F00;
+}
+
+.header {
+	width: 100%;
+	background-color: #009;
+	/*margin-top:10px;*/
+	height: 70px;
+}
+
+.container_email {
+	background-color: #0FF;
+	width: 300px;
+	margin: 0 auto 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
+}
+
+.menu_wrap {
+	background-color: #0F0;
+	margin:0px 0 0 0;
+	text-align:left;
+	z-index:199;
+}
+
+.col_wrap {
+	text-align:left;
+	z-index:0;
+}
+
+.column_3 {
+	width:306px;
+	display:inline;
+	float: left;
+	position: relative;
+	z-index:0;
+}
+
+.column_spacer {
+	float:left;
+	width:20px;	
+}
+
+.footer {
+	/*background-color: #CDE;*/
+	margin: 20px 0 0 0;
+	border-top:solid 2px #999999;
+}
+
+.footer p {
+	font-size:12px;
+}
+
+table{
+	/*background-color: #909;*/
+	width:100%;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	z-index:2;
+	margin-top:20px;
+}
+
+th {
+	font-weight:bold;
+	width:auto;
+	text-align: center;
+	vertical-align:text-top;
+	padding: 2px 10px 0 10px;
+	background: #DDD;
+	border-bottom: 1px solid #BBB;
+	
+	-moz-border-radius: 10px 10px 0px 0px;
+	-webkit-border-radius: 10px 10px 0px 0px;
+	border-radius: 10px 10px 0px 0px;
+}
+ 
+td {
+	width:auto;
+	text-align: left;
+	vertical-align:text-top;
+	border-bottom: 1px solid #BBB;
+	background: #FFF;
+	padding: 2px 10px 0 10px;
+}
+
+td #left {
+	text-align: left;
+}
+
+td.alt {
+	background: #EEE;
+}
+
+tr.alt {
+	background: #EEE;
+}
+
+select {
+	width: 100px;
+	height: 22px;
+}
+
+input {
+	width: 50px;
+	height: 16px;
+}
+
+.active {
+	color:#FFF;	
+	background-color:#0C0;
+}
+
+.inactive {
+	color:#FFF;	
+	background-color:#C00;
+}
+
+#update_button {
+	width: 68px;
+	height: 28px;	
+}
+
+#submit {
+	width: 68px;
+	height: 28px;	
+}
+
+#email, #password {
+	width: 160px;
+	height: 22px;	
+}
+
+.frame_header {
+	/*background-color: #ABC;*/
+	width: 100%;
+	margin:0;
+	/*padding-bottom:10px;*/
+	height: 90px;/**/
+	
+	border-bottom: 1px;
+	border-bottom-style:solid;
+	border-bottom-color: #666;
+}
+
+#frame_report {
+	/*background-color: #0F0;*/
+	width:50%;
+	height:80px;/**/
+	float: right;/**/
+	border-left:1px;
+	border-left-style:solid;
+	border-left-color: #666;
+}
+
+#frame_reports {
+	/*background-color: #FF0;*/
+	float: right;/**/
+}
+
+#frame_submit_button {
+	/*background-color: #CAB;*/
+	margin-top:26px;
+	padding:0;/**/
+}
+
+
+#reports_select, #reports_days, #reports_range {
+	/*background-color: #CAB;*/
+	text-align: right;
+	width: 200px;
+	padding-bottom: 4px;/**/
+}
+
+#reports_dropdown {
+	width: 120px;	/**/
+}
+
+.reports_submit {
+	font-size: 12px;
+	background: #DDD;
+	width: 80px;
+	height: 80px;
+	border: 1px solid #999;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.reports_submit:hover {
+   background: #EEE;
+}
+
+#frame_center {
+	/*background-color: #CAB;*/
+	width:24%;
+	height:80px;/**/
+	float: left;/**/
+	text-align: left;
+	padding: 0px 0px 0px 10px;/**/
+}
+#frame_center a {
+	line-height: 18px;
+	/*margin: 10px;*/
+}
+.header {
+	background-color: #EFEFEF;/**/
+	text-align: center;
+	line-height: 16px;/**/
+	text-transform:uppercase;
+	color: #999;
+	font-size:14px;
+	height: 16px;
+	margin: 0 0px 6px 0px;/**/
+	letter-spacing: .6em;
+}
+
+#frame_welcome{
+	/*background-color: #BAC;*/
+	width:24%;
+	float: left;
+	height:80px;/**/
+	text-align: center;
+	border-right: 1px;
+	border-right-style:solid;
+	border-right-color: #666;
+}
+
+#frame_welcome h1{
+	font-size:24px;
+	margin: 0;/**/
+}
+
+#submit { /* Login /Out Button */
+ 	margin-top: 20px;/**/
+	background: #DDD;
+	width: 80px;
+	height: 30px;
+	border: 1px solid #999;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#DDDDEE'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#DDE)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #FFF,  #DDE); /* for firefox 3.6+ */ 
+}
+
+#submit:hover { /* Login /Out Button */
+	border: 1px solid #F00;
+	color: #F00;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#EEEEFF'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EEF)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #FFF,  #EEF); /* for firefox 3.6+ */ 
+}
+
+#days_option {
+	/*margin: 4px 0 0 -10px;*/
+}
+
+#loading {
+	visibility: hidden;
+	width: 100%;
+	position:relative; z-index:20; top:0; left:0;  
+	font-size:20px; 
+	text-align: center;
+	background-color:#FFF;
+	opacity:0.9;
+  	filter:alpha(opacity=90); /* For IE8 and earlier */
+}
+
+#content {
+	/*background-color: #CFC;*/
+	position:relative; z-index:1; top: 0px; left:0;	
+}
+
+.button a {
+	margin: 0px 4px 0px 4px;
+	padding:4px 10px 4px 10px;
+	background: #DDD;
+	border: 1px solid #999;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	text-decoration:none;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#EEEEFF'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#DDE)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #FFF,  #DDE); /* for firefox 3.6+ */ 
+}
+
+.button a:hover {
+	border: 1px solid #F00;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#EEEEFF'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EEF)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #FFF,  #EEF); /* for firefox 3.6+ */ 
+}
+
+#button_view {
+	font-size:26px;
+	text-justify:distribute;
+	padding:10px 0px 10px 10px;
+}
+#button_download {
+	font-size:12px;
+	padding:12px 0px 0px 10px;
+}

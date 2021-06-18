@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Domain /Node Mapping</title>
+<script language="javascript" src="includes/functions.js"></script>
+<script text="javascript">
+
+var nodes = new Array();
+/*
+var person={fname:"John",lname:"Doe",age:25};
+for (x in person){
+  txt=txt + person[x];
+}
+
+document.myform.myfield.value = variable;
+  */
+  
+nodes[0] = new Array();
+nodes[1] = new Array('youtubu.com','youtubl.com','careersandcollege.com');
+nodes[2] = new Array('faceb.com','dealfox.com','careersandcollege.com','gaggle.net');
+nodes[3] = new Array('iblog.com','freecandy.com','pokerstar.com');
+
+var sourceURLs = new Array('youtubu.com','youtubl.com','careersandcollege.com','faceb.com','dealfox.com','gaggle.net','iblog.com','freecandy.com','pokerstar.com');
+
+</script>
+
+<!--<link rel="stylesheet" type="text/css" href="templates/default/styles/admin_styles_dev.css" />-->
+<style>
+html {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000;
+	text-align: center;
+	margin:10px;
+	line-height:20px;
+}
+
+a {
+	color: #000;
+}
+
+a:hover {
+	color: #F00;
+}
+
+/*================= Needed for this page ================================*/
+body {
+	/*background-color: #CFC;	*/
+	margin: 50px;	
+}
+
+.options_container {
+	/*background-color: #FCC;	*/
+	text-align:center;
+	width: 300px;	
+}
+
+.listbox_container {
+	/*background-color: #FCC;	*/
+	text-align:center;
+	width: 300px;	
+}
+
+.listbox_container_new {
+	background-color: #FCC;	/**/
+	padding: 10px;
+}
+
+.button a {
+	margin: 0px 4px 0px 4px;
+	padding:4px 10px 4px 10px;
+	background: #DDD;
+	border: 1px solid #999;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	text-decoration:none;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#EEEEFF'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#DDE)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #FFF,  #DDE); /* for firefox 3.6+ */ 
+}
+
+.button a:hover {
+	border: 1px solid #F00;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#EEEEFF'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EEF)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #FFF,  #EEF); /* for firefox 3.6+ */ 
+}
+
+.domain_field {
+	width: 300px;	
+}
+
+.groups_container a {
+	color: #000;
+}
+
+.groups_container a:hover {
+	color: #F00;
+}
+
+.lb_header {
+	text-align: left;
+	font-size:16px;
+	padding: 2px 2px 4px 6px;
+	border-top: 1px solid #99B;
+	background: -webkit-gradient(linear, left top, left bottom, from(#DDD), to(#FFF)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #DDD,  #FFF); /* for firefox 3.6+ */ 
+}
+
+</style>
+</head>
+
+<body onload="fGetURLs();">
+
+<form id="domain_nodes" name="domain_nodes" method="post" action="">
+<input id="domain_group" name="domain_group" type="hidden" value="Failure" />
+<table width="100%" border="0" align="center">
+	<tr>
+		<td width="50%" align="right">
+			<div class="listbox_container">
+				<div class="lb_header" id="lb_header_domain">Domains</div>
+				<select class="domain_field" name="domains" size="20" multiple="multiple" id="domains">
+				</select>
+				<p>
+					<div class="button">
+						<a href="javascript:void()" onclick="fLbSelectAll('domains', true)">Select All</a>
+						<a href="javascript:void()" onclick="fLbSelectAll('domains', false)">Deselect All</a>
+					</div>
+				</p>
+			</div>
+		</td>
+		<td>
+			<div class="options_container">
+				<div class="listbox_container_new">
+					<div class="button">
+						<a href="javascript:void()" onclick="fAddNode('domain_group')">New Grouping</a><input type="text" name="id" id="id" />
+					</div>
+				</div>
+				<div class="groups_container">
+				<table width="100%">
+					<tr>
+						<td><p><a href="javascript:void()" onclick="fGetNode('1')">Group 1</a></p> </td>
+						<td><p><a href="javascript:void()" onclick="fGetNode('2')">Group 2</a></p> </td>
+						<td><p><a href="javascript:void()" onclick="fGetNode('3')">Group 3</a></p> </td>
+					</tr>
+					<tr>
+						<td colspan="3"><p><a href="javascript:void()" onclick="">All</a></p></td>
+					</tr>
+				</table>
+				<div class="button">
+					<a href="javascript:void()" onclick="fLbMoveAcross('nodes', 'domains')">&lt;&lt;</a>
+					<a href="javascript:void()" onclick="fLbMoveAcross('domains', 'nodes')">&gt;&gt;</a>
+					<p><a href="javascript:void()" onclick="">Save Changes</a></p>
+				</div>
+				</div>
+			</div>
+		</td>
+		<td width="50%" align="left">
+			<div class="listbox_container">
+				<div class="lb_header" id="lb_header_nodes">Group:</div>
+				<select class="domain_field" name="nodes" size="20" multiple="multiple" id="nodes">
+				</select>
+				<p>
+					<div class="button">
+						<a href="javascript:void()" onclick="fLbSelectAll('nodes', true)">Select All</a>
+						<a href="javascript:void()" onclick="fLbSelectAll('nodes', false)">Deselect All</a>
+						<a href="javascript:fSortList('nodes')">Sort</a>
+					</div>
+				</p>
+			</div>
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>
