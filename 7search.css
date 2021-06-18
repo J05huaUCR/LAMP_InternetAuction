@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font-family:Verdana, Geneva, sans-serif;
+	color:#000;
+}
+
+.row {
+	font-size:12px;
+	font-style:normal;
+	background-color:#069;	
+	padding: 5px;
+	margin-bottom: 1px;
+}
+
+#sponsorAds {
+	width:400px;
+	padding:0px 0 10px 0;
+};
+
+#submit {
+	background-color:#0F0;
+	color:#F00;
+};
+
+.redirectURL {
+	padding-bottom:10px;
+	
+}
+
+.redirectURL a {
+	font-weight:bold;
+	
+	font-size:14px;
+	color:yellow;
+}
+
+.description {
+	color:white;
+	font-style:italic;	
+	padding-bottom:5px;
+}
+
+.sponsorURL a {
+	color:#0099FF;
+	font-size:10px;
+	font-weight:bold;
+}

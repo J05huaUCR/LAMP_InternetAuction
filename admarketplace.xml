@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result response="507" count="3">
+	<adlistings>
+		<listing>
+			<title>Title 1</title>
+			<ad_id>1</ad_id>
+			<campaign_id>1</campaign_id>
+			<description>Description 1</description>
+			<bid_price>0.1</bid_price>
+			<clickurl>click1.com</clickurl>
+			<displayurl>click1.com</displayurl>
+		</listing>
+		<listing>
+			<title>Title 2</title>
+			<ad_id>2</ad_id>
+			<campaign_id>2</campaign_id>
+			<description>Description 2</description>
+			<bid_price>0.2</bid_price>
+			<clickurl>click2.com</clickurl>
+			<displayurl>click2.com</displayurl>
+		</listing>
+		<listing>
+			<title>Title 3</title>
+			<ad_id>3</ad_id>
+			<campaign_id>3</campaign_id>
+			<description>Description 3</description>
+			<bid_price>0.3</bid_price>
+			<clickurl>click3.com</clickurl>
+			<displayurl>click3.com</displayurl>
+		</listing>
+	</adlistings>
+</result>

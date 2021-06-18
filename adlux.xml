@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed>
+	<results>
+		<count>2</count>
+		<query>shopping</query>
+		<sponsored>
+			<count>2</count>
+			<listing>
+				<cpc>0.95</cpc>
+				<description>redOrbit.com is a science, health, and technology ...</description>
+				<displayurl>redorbit.com</displayurl>
+				<rank>1</rank>
+				<title>redOrbit.com -- Science, Health, Technology Videos</title>
+				<url>http://...html?rt=fd&amp;src=l&amp;q=shopping&amp;c=11&amp;p=14&amp;sc=1111</url>
+			</listing>
+			<listing>
+				<cpc>0.85</cpc>
+				<description>Watch Tech5 with John C. Dvorak now!</description>
+				<displayurl>tech5top5.mevio.com</displayurl>
+				<rank>2</rank>
+				<title>Free tech talk and news video!</title>
+				<url>http://...html?rt=fd&amp;src=l&amp;q=shopping&amp;c=11&amp;p=14&amp;sc=1111</url>
+			</listing>
+		</sponsored>
+	</results>
+</feed>

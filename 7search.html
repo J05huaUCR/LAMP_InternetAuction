@@ -1,0 +1,78 @@
+<html>
+<head>
+<link href="7search.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript">
+function loadXMLDoc() {
+	var url = '7search.xml';
+	var xml_url = 'http://meta.7search.com/feed/xml.aspx?affiliate=75667&token=014BF76EAF7943CD8AB00E5789846209&rid=zc1300&ip_address=70.246.51.2&st=typein&pn=1&r=5&page_url=http%253A%252F%252Fwww.toptrafficsource.com&qu='
+	var xmlhttp;
+	var txt,x,xx,i;
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	} else {// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	var vKeywords = escape(sponsorKeywords.value); // from text area
+	xml_url = xml_url + vKeywords;
+	//alert (xml_url);
+	document.getElementById('sponsorAds').innerHTML= xml_url;
+	sponsorKeywords.value = '';
+	
+	xmlhttp.onreadystatechange = function() {
+		alert (xml_url);
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			
+			txt="<div id='sponsorAds'>";
+			
+			x = xmlhttp.responseXML.documentElement.getElementsByTagName("SITE");
+			for (i=0; i < x.length; i++) {
+				// retrieve XML nodes
+				xx=x[i].getElementsByTagName("URL");
+				var vURL = xx[0].firstChild.nodeValue;
+				xx=x[i].getElementsByTagName("NAME");
+				var vName = xx[0].firstChild.nodeValue;
+				xx=x[i].getElementsByTagName("DESCRIPTION");
+				var vDesc = xx[0].firstChild.nodeValue;
+				xx=x[i].getElementsByTagName("HTTPLINK");
+				var vHTTP = xx[0].firstChild.nodeValue;
+				
+				// Prepare Output
+				txt=txt + "<div class='row'>";
+				txt=txt + "<div class='redirectURL'><a href='" + vURL + "'>";
+				txt=txt + vName + "</a></div>";
+				txt=txt + "<div class='description'>" + vDesc + "</div>";
+				txt=txt + "<div class='sponsorURL'><a href='" + vURL + "'>" + vHTTP + "</a></div>";
+				txt=txt + "</div>";
+			}
+			
+			txt=txt + "</div>";
+			txt=txt + xml_url;
+			// Set output
+			document.getElementById('sponsorAds').innerHTML=txt;
+		}
+	}
+	
+	xmlhttp.open("GET",xml_url,true);
+	xmlhttp.send();
+}
+</script>
+
+</head>
+<body>
+
+<div id="sponsorAds">
+</div>
+
+<div id="submit">
+	<form name="form1" method="post" action="">
+		<label for="sponsorKeywords"></label>
+		<input type="text" name="sponsorKeywords" id="sponsorKeywords">
+	</form>
+	<button onClick="loadXMLDoc()">Check Feed</button>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AJAX MultiThreading</title>
+<script type="text/javascript" src="test_multi_ajax.js"></script>
+</head>
+
+<body>
+<SCRIPT LANGUAGE="JavaScript"><!--
+function fCheckCookie() { // cookie test
+	if (document.cookie == "") return false; else return true;
+}
+
+document.cookie = 'true';
+
+<!-- Function to call php to write to mySQL -->
+function writeUser(str) {
+	if (str=="") {
+		document.getElementById("avatarsavediv").innerHTML="";
+		return;
+	}
+	
+	/* Establish AJAX Object */
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	} else {// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			document.getElementById("avatarsavediv").innerHTML=xmlhttp.responseText;
+		}
+	}
+	
+	var avatarid = str ;// best to set a new variable name so I don't forget what I'm working on
+	
+	// below we can grab a mysql value if we need to
+	var phpnickname = "<?= $username ?>";
+	var avurl = "function.php?nickname="+phpnickname+"&avatarid="+avatarid;
+	xmlhttp.open("GET",avurl,true);
+	xmlhttp.send();
+}
+netscapeTest = parseInt(navigator.appVersion)
+explorerTest = navigator.appName.indexOf("Microsoft") + 1
+
+function netscapeThree() {
+     if (navigator.javaEnabled()) {
+          userDomain = java.net.InetAddress.getLocalHostName()
+          return (userDomain.toString())
+     } else {
+          return null
+     }
+}
+
+function netscapeFour() {
+     if (navigator.javaEnabled()) {
+          baseAddress = java.net.InetAddress.getLocalHost()
+          userDomain = baseAddress.getHostName()
+          return (userDomain.toString())
+     } else {
+          return null
+     }
+}
+
+if ((explorerTest == "0") && (netscapeTest == "3")) {
+     domainName = netscapeThree()
+} else if ((explorerTest == "0") && (netscapeTest == "4")) {
+     domainName = netscapeFour()
+} else {
+     domainName = "null"
+}
+
+//-->
+var BrowserDetect = {
+	init: function () {
+		this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
+		this.version = this.searchVersion(navigator.userAgent)
+			|| this.searchVersion(navigator.appVersion)
+			|| "an unknown version";
+		this.OS = this.searchString(this.dataOS) || "an unknown OS";
+	},
+	searchString: function (data) {
+		for (var i=0;i<data.length;i++)	{
+			var dataString = data[i].string;
+			var dataProp = data[i].prop;
+			this.versionSearchString = data[i].versionSearch || data[i].identity;
+			if (dataString) {
+				if (dataString.indexOf(data[i].subString) != -1)
+					return data[i].identity;
+			}
+			else if (dataProp)
+				return data[i].identity;
+		}
+	},
+	searchVersion: function (dataString) {
+		var index = dataString.indexOf(this.versionSearchString);
+		if (index == -1) return;
+		return parseFloat(dataString.substring(index+this.versionSearchString.length+1));
+	},
+	dataBrowser: [
+		{
+			string: navigator.userAgent,
+			subString: "Chrome",
+			identity: "Chrome"
+		},
+		{ 	string: navigator.userAgent,
+			subString: "OmniWeb",
+			versionSearch: "OmniWeb/",
+			identity: "OmniWeb"
+		},
+		{
+			string: navigator.vendor,
+			subString: "Apple",
+			identity: "Safari",
+			versionSearch: "Version"
+		},
+		{
+			prop: window.opera,
+			identity: "Opera",
+			versionSearch: "Version"
+		},
+		{
+			string: navigator.vendor,
+			subString: "iCab",
+			identity: "iCab"
+		},
+		{
+			string: navigator.vendor,
+			subString: "KDE",
+			identity: "Konqueror"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "Firefox",
+			identity: "Firefox"
+		},
+		{
+			string: navigator.vendor,
+			subString: "Camino",
+			identity: "Camino"
+		},
+		{		// for newer Netscapes (6+)
+			string: navigator.userAgent,
+			subString: "Netscape",
+			identity: "Netscape"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "MSIE",
+			identity: "Explorer",
+			versionSearch: "MSIE"
+		},
+		{
+			string: navigator.userAgent,
+			subString: "Gecko",
+			identity: "Mozilla",
+			versionSearch: "rv"
+		},
+		{ 		// for older Netscapes (4-)
+			string: navigator.userAgent,
+			subString: "Mozilla",
+			identity: "Netscape",
+			versionSearch: "Mozilla"
+		}
+	],
+	dataOS : [
+		{
+			string: navigator.platform,
+			subString: "Win",
+			identity: "Windows"
+		},
+		{
+			string: navigator.platform,
+			subString: "Mac",
+			identity: "Mac"
+		},
+		{
+			   string: navigator.userAgent,
+			   subString: "iPhone",
+			   identity: "iPhone/iPod"
+	    },
+		{
+			string: navigator.platform,
+			subString: "Linux",
+			identity: "Linux"
+		}
+	]
+
+};
+BrowserDetect.init();
+
+if ( fCheckCookie() ) {
+	document.write('Cookies enabled<br />'); 
+} else {
+	document.write('Cookies disabled<br />'); 
+}
+document.write('Domain: ' + document.domain + '<br />');
+document.write('Referer: ' + document.referrer + '<br />');
+document.write('User Agent: ' + navigator.userAgent + '<br />');
+
+document.write('Browser: ' + BrowserDetect.browser + '<br />');
+document.write('Browser: ' + BrowserDetect.version + '<br />');
+document.write('Browser: ' + BrowserDetect.OS + '<br />');
+</script>
+
+<p>To test it out, try these links:<br>
+<a href="javascript:combinedAlert.init(['http://www.toptrafficsource.com/dc/test_ajax1.txt'])">One URL</a><br>
+<a href="javascript:combinedAlert.init(['test_ajax1.txt', 'test_ajax2.txt'])">Two URLs</a><br>
+<a href="javascript:combinedAlert.init(['test_ajax1.txt', 'test_ajax2.txt', 'test_ajax3.txt'])">Three URLs</a><br>
+<a href="javascript:combinedAlert.init(['test_ajax1.txt', 'test_ajax2.txt', 'test_ajax3.txt', 'test_ajax4.txt'])">Four URLs</a></p>
+</body>
+</html>

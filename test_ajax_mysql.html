@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="cars,trucks,videos,girls,camping" />
+<meta name="description" content="The description for this site is lame." />
+
+<title>AJAX &amp; MySQL Test</title>
+
+<link rel="stylesheet" href="admin/templates/default/styles/admin_styles.css" type="text/css" media="screen" />
+<script type="text/javascript" src="http://www.toptrafficsource.com/dc/includes/dc_ajax.js"></script> 
+
+<script language="JavaScript">
+
+<!-- Function to return meta info -->
+function getMetaContents(mn){
+	/*
+	var m = document.getElementsByTagName('meta');
+	for(var i in m){
+		if(m[i][i].name == mn){
+			return m[i].content;
+		}
+	}*/
+}
+
+function metaKeywords() {
+	metaCollection = document.getElementsByTagName('meta');
+	var keys = '';
+	
+	for (i=0; i < metaCollection.length; i++) {
+		nameAttribute = metaCollection[i].name.search(/keywords/);
+		
+		if (nameAttribute!= -1) {
+			//alert(metaCollection[i].content);
+			keys = keys + metaCollection[i].content;
+		}
+	}
+	return keys;
+} 
+<!-- Function to call php to write to mySQL -->
+function writeUser(str) {
+	if (str=="") {
+		document.getElementById("avatarsavediv").innerHTML="";
+		return;
+	}
+	
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	} else {// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			document.getElementById("avatarsavediv").innerHTML=xmlhttp.responseText;
+		}
+	}
+	
+	var avatarid = str ;// best to set a new variable name so I don't forget what I'm working on
+	
+	// below we can grab a mysql value if we need to
+	var phpnickname = "<?= $username ?>";
+	var avurl = "function.php?nickname="+phpnickname+"&avatarid="+avatarid;
+	xmlhttp.open("GET",avurl,true);
+	xmlhttp.send();
+}
+
+// retrieving info from mySQL
+function showStats(str) {
+	
+	if (str=="") {
+		var XMLresp = '';
+		document.getElementById("statsField").innerHTML=XMLresp;
+		return;
+	}
+	
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttpStats=new XMLHttpRequest();
+	} else {// code for IE6, IE5
+		xmlhttpStats=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	xmlhttpStats.onreadystatechange=function() {
+		if (xmlhttpStats.readyState==4 && xmlhttpStats.status==200) {
+			document.getElementById("statsField").innerHTML=xmlhttpStats.responseText;
+		}
+	}
+	xmlhttpStats.open("GET","test_ajax_mysql_helper.php?days="+str,true);
+	xmlhttpStats.send();
+}
+
+// AdClick Functions
+function fAdClick2(keys,num_ads,div) {
+	
+	// Set Cookie
+	var keywords = escape(keys);
+	var domain = document.domain;
+	var name = 'directclick_js_enabled';
+	var value = 1;
+	var days = 1;
+	if (days) { // number of days
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*24*30));
+		var expires = "; expires="+date.toGMTString();
+	} else {
+		var expires = "";
+	}
+	document.cookie = name+"="+value+expires+"; path=/";
+	
+	//alert ('keywords='+keywords +', num_ads='+num_ads+', div='+div);
+	
+
+	// Initiate AJAX
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttpSession=new XMLHttpRequest();
+	} else {// code for IE6, IE5
+		xmlhttpSession=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	// Wait for response
+	xmlhttpSession.onreadystatechange=function() {
+		if (xmlhttpSession.readyState==4 && xmlhttpSession.status==200) {
+			document.getElementById(div).innerHTML=xmlhttpSession.responseText;
+		}
+	}
+	//var url = "http://www.toptrafficsource.com/dc/ac_dev.php?domain="+domain+"&keywords="+keywords+"&num_ads="+num_ads+"&js=1";
+	var url = "test_ajax_mysql_helper.php?days=0";
+	//alert('url='+url);
+	xmlhttpSession.open("GET",url,true);
+	xmlhttpSession.send();
+}
+
+document.cookie = 'true';
+
+// -->
+</script>
+
+<style type="text/css">
+.tbl_results { width:550px; text-align:center;}
+#test_wrapper {width:1280px;background-color:#FFF;}
+#test_ads {width:280px;background-color:#FFF;float:left;}
+#test_stats {width:1200px;background-color:#FFF;float:left;}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the overflow:hidden on the .container is removed */
+	clear:both;
+}
+</style>
+
+
+</head>
+
+<body onload='fCheckCookie()'>
+<script>
+document.write('Keys: '+metaKeywords() + '<br />');
+document.write('Domain: ' + document.domain + '<br />');
+document.write('Referer: ' + document.referer + '<br />');
+
+</script>
+<table>
+	<tr>
+		<td>
+		<h7>Select Platform</h7>
+		<form name="statsPlatform">
+			<select name="platform" onchange="">
+				<option value="zc">ZeroClick&trade;</option>
+				<option value="dc">DirectClick&trade;</option>
+				<option value="ac">AdClick&trade;</option>
+				<option value="bids">All</option>
+			</select>
+		</form>
+		</td>
+		<td>
+		<h7>Select Report</h7>
+		<form name="statsReports">
+			<select name="reports" onchange="">
+				<option value="overview">Overview</option>
+				<option value="feeds">Feeds</option>
+				<option value="revenue">Revenue</option>
+				<option value="bids">Bids</option>
+				<option value="keywords">Keywords</option>
+				<option value="domains">Domains</option>
+				<option value="redirects">Redirects</option>
+				<option value="trending">Trending</option>
+			</select>
+		</form>
+		</td>
+		<td>
+		<h7>Select Date(s)</h7>
+		<form name="statsForm">
+			<select name="stats" onchange="showStats(this.value)">
+				<option value="0">Today</option>
+				<option value="1">Yesterday</option>
+				<option value="7">Past 7 Days</option>
+				<option value="14">Past 2 Weeks</option>
+				<option value="30">Past 30 Days</option>
+				<option value="mtd">Month to Date</option>
+				<option value="ytd">Year to Date</option>
+			</select>
+		</form>
+		</td>
+		<td>
+		<h7>Show Session Info</h7>
+		<form name="sessionForm" action="">
+			<a href="javascript:fAdClick('cats dogs',6,'session')">Initiate Session</a>
+			<!--<input type="submit" name="session" id="session" value="Submit" onclick="void:javascript(initSession('test_ajax_mysql_session.php'))" />-->
+		</form>
+		</td>
+	</tr>
+</table>
+
+<br />
+<div id="test_wrapper">
+	<div id="test_ads">
+		<div id="session">Session</div>
+	</div>
+	<div id="test_stats">
+		<div id="statsField">Stats</div>
+	</div>
+	<div class="clearfloat"></div>
+</div>
+
+<FORM>
+  <input type="hidden" name="cookieexists" value="false">
+</FORM>
+</body>
+</html>

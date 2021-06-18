@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF8"?>
+<bid>
+	<result>1</result>
+	<info>Successful bid request.</info>
+	<domain>example.org</domain>
+	<ip>63.100.1.1</ip>
+	<rpm>25.00</rpm>
+	<id>EkJD8rDDPnJkYB7V</id>
+	<redirect>http://zeroclick.sendori.com/redirect?uid=EkJD8rDDPnJkYB7V</redirect>
+</bid>

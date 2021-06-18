@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<listings>
+	<listing>
+		<title>CNN/Money</title>
+		<site>http://money.cnn.com/</site>
+		<description>CNN.com. Companies Economy International Corrections Pre-market trading After-hours ... CNN.com. Major Mississippi bridge closed. Floods, other news happening now ...</description>
+		<url>http://67.201.36.13/index.html?f=1&red=1&q=http%3A%2F%2Fwww.cnn.com&c=3237&p=2436&sc=&d=1&u=2-LI3DykO0MJH4MS7LO0H&a=asguvgybgubhuhbuasd&fd=c2VhcmNoLnlvbmFtZS5jb20&i=NC4yLjIuMg&m=fDAuMDUwMHwwLjAzMDA&des=aHR0cDovL3dzYXBpLmluZm9zcGFjZS5jb20vY2xp</url>
+		<bid>0.35</bid>
+	</listing>
+	
+	<listing>
+		<title>CNN Video</title>
+		<site>http://www.cnn.com/video</site>
+		<description>Find the latest video news stories and information free from CNN.com. Watch breaking news and video clips about politics, entertainment, weather, the world, and more.</description>
+		<url>http://67.201.36.13/index.html?f=1&red=1&q=http%3A%2F%2Fwww.cnn.com&c=3237&p=2436&sc=&d=1&u=3-LI3DykO0MJH4MS7LO0H&a=asguvgybgubhuhbuasd&fd=c2VhcmNoLnlvbmFtZS5jb20&i=NC4yLjIuMg </url>
+		<bid>0.19</bid>
+	</listing>
+	
+	<listing>
+		<title>CNN</title>
+		<site>http://www.cnn.com/</site>
+		<description>For in-depth coverage, CNN.com provides special reports, video, audio, photo ... 10 most popular stories on CNN.com updated every 20 minutes. 1 ...</description>
+		<url>http://67.201.36.13/index.html?f=1&red=1&q=http%3A%2F%2Fwww.cnn.com&c=3237&p=2436&sc=&d=1&u=1-LI3DykO0MJH4MS7LO0H&a=asguvgybgubhuhbuasd&fd=c2VhcmNoLnlvbmFtZS5jb20&i=NC4yLjIuMg&m=</url>
+		<bid>0.15</bid>
+	</listing>
+</listings>

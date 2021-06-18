@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ads>
+	<ad>
+		<title> Title of the Ad Result </title>
+		<abstract> DESCRIPTION for the Ad Result </abstract>
+		<url> Display URL for the Ad Result </url>
+		<rurl>http://google.com</rurl>
+		<bid>.02</bid>
+	</ad>
+</ads>
