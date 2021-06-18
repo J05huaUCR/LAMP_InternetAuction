@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+
+.promoBoxWrap {
+	background-color:#0b5198;
+	clear:both;
+	overflow:hidden;
+	border:solid 1px #0b5198;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	width:621px;
+}
+.promoBoxWrap h2 {
+	color:#fff;
+	font:bold 15px arial; 
+	padding:15px 0 0 15px;
+	margin:0;
+}
+.promoBoxPad {
+	background-color:#fff;
+	clear:both;
+	margin:10px;
+	padding:15px 10px 0 10px;
+	overflow:hidden;
+	border:solid 1px #fff;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+.feed {
+	display:block;
+	padding:0;
+	margin:0 0 20px 10px;
+	cursor:pointer;
+}
+.title {
+	color:#0b5198;
+	font:bold 24px arial;
+	text-decoration:none;
+}
+.description {
+	color:#686868;
+	font:normal 16px arial;
+	padding:5px 0 5px 0;
+	text-decoration:none;
+}
+.url {
+	color:#378cea;
+	font:normal 16px arial;
+	text-decoration:none;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>[% domain.domain %]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Description" content="Look no further for the best information on [% domain.domain %].  Find all your results about [% domain.domain %]" />
+<meta name="Keywords" content="[% layout.keywords %]" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" href="[% staticcontenturl %]/images/metallic/styles/styles.css" type="text/css" />
+
+<!--- start new google js --->
+[% num_ads = 5 %] 
+[% single_ad_code = BLOCK %]\
+<li>\
+    <a href='<-ad.link->' target='_blank' class='head'><-ad.LINE1-></a><br />\
+    <a href='<-ad.link->' target='_blank' class='deck'><-ad.LINE2-></a><br />\
+    <a href='<-ad.link->' target='_blank' class='url'><-ad.visible_url-></a>\
+</li>\
+[% END %]
+
+[% INCLUDE domainserve/google_js.tt2 %]
+<!--- end new google js --->
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="header">
+		[% INCLUDEHEADERCONTENT %]
+    </div><!--/header-->
+
+	<div id="body">
+		<div id="content">
+        	<div class="content_related">
+            
+            	<img src="[% staticcontenturl %]/images/metallic/images/computer.jpg" width="240" height="163" style="border:solid 0px #ccc; margin:0; " />
+                
+            	<div class="related_head">
+                	<h2>Related Search</h2>
+                </div><!--/related_head-->
+                
+                <div class="related_list">
+<script type="text/javascript">
+document.write("<ul>");
+
+	for (y=5; y < 13; y++) 
+	{
+		document.write("<li><a href='" + relatedArray[y][1] + "'>" + relatedArray[y][0] + "</a></li>\n");
+	}
+	
+document.write("</ul>\n");
+</script>
+                </div><!--/related_list-->
+            </div><!--/content_related-->
+            
+            
+
+            <div class="contentSponsored">
+                <span class="sponsoredlisting">Sponsored Listings for:</span>
+                    <ul>           
+<script type="text/javascript">
+document.write(ads_html);
+</script>
+                    </ul>
+            </div><!--/contentSponsored-->
+        </div><!--/content-->
+	</div><!--/body-->
+	<div class="push"></div> 
+</div><!--/wrapper-->
+
+
+
+<div class="footer">
+	<div class="footerContent">
+            <div class="footerlist">
+<script type="text/javascript">
+document.write("<ul><li class='rel'>Related Search :</li>");
+
+for	(y=13; y < 17; y++)
+	 
+	{
+		document.write("<li><a href='" + relatedArray[y][1] + "'>" + relatedArray[y][0] + "</a></li>\n");
+	}
+	
+document.write("</ul>\n");
+</script>
+            </div><!--/footerlist-->
+    	<div class="footerPrivacy"><a href="" class="txtlink">Privacy Policy</a> | <a href="" class="txtlink">Advertise</a></div>
+    </div><!--/footerContent-->
+</div><!--/footer-->
+</body>
+</html>

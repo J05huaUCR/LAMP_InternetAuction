@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>[% domain.domain %]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="Description" content="Look no further for the best information on [% domain.domain %].  Find all your results about [% domain.domain %]" />
+<meta name="Keywords" content="[% layout.keywords %]" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="stylesheet" href="[% staticcontenturl %]/images/metallic/styles/styles.css" type="text/css" />
+
+<!--- start new google js --->
+[% num_ads = 5 %] 
+[% single_ad_code = BLOCK %]\
+<li>\
+    <a href='<-ad.link->' target='_blank' class='head'><-ad.LINE1-></a><br />\
+    <a href='<-ad.link->' target='_blank' class='deck'><-ad.LINE2-></a><br />\
+    <a href='<-ad.link->' target='_blank' class='url'><-ad.visible_url-></a>\
+</li>\
+[% END %]
+
+[% INCLUDE domainserve/google_js.tt2 %]
+<!--- end new google js --->
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="header">
+		[% INCLUDEHEADERCONTENT %]
+    </div><!--/header-->
+
+	<div id="body">
+		<div id="content">
+        	<div class="content_related_search">
+            
+            	<img src="[% staticcontenturl %]/images/metallic/images/general.jpg" width="240" height="163" style="border:solid 0px #ccc; margin:0; " />
+                
+            	<div class="related_head">
+                        <h2><a class='relatedLnk' rel='feedback_url' href='feedback_url' target='_blank'>[% Catalyst.loc('Related Searches') || "Related Searches" %]</a></h2>
+                </div><!--/related_head-->
+                
+                <div class="related_list">
+<script type="text/javascript">
+document.write("<ul>");
+
+	for (y=5; y < 13; y++) 
+	{
+		document.write("<li><a href='" + relatedArray[y][1] + "'>" + relatedArray[y][0] + "</a></li>\n");
+	}
+	
+document.write("</ul>\n");
+</script>
+                </div><!--/related_list-->
+            </div><!--/content_related_search-->
+            
+            
+
+            <div class="contentSponsored">
+                <span class="sponsoredlisting"><a class='sponsored' id='sponsorlink' href ='feedback_url' target='_blank'>Sponsored Listings</a> for: [% IF searchterms %] [% searchterms %] [% ELSE %] [% domain.domain %][% END %]</span>
+                    <ul>           
+<script type="text/javascript">
+document.write(ads_html);
+</script>
+                    </ul>
+            </div><!--/contentSponsored-->
+        </div><!--/content-->
+	</div><!--/body-->
+	<div class="push"></div> 
+</div><!--/wrapper-->
+
+
+
+<div class="footer">
+	<div class="footerContent">
+            <div class="footerlist">
+<script type="text/javascript">
+document.write("<ul><li class='rel'>Related Search :</li>");
+
+for	(y=13; y < 17; y++)
+	 
+	{
+		document.write("<li><a href='" + relatedArray[y][1] + "'>" + relatedArray[y][0] + "</a></li>\n");
+	}
+	
+document.write("</ul>\n");
+</script>
+            </div><!--/footerlist-->
+    	<div class="footerPrivacy"><a href="http://www.[% domain.domain %]/domainserve/privacy?dn=[% domain.domain %]" class="txtlink" target="_blank">Privacy Policy</a> | <a href="javascript:contactus('/domainserve/contactus?dn=[% domain.domain %]')" class="txtlink">Advertise</a></div>
+
+
+<script language=javascript>
+<!--
+function contactus(N) {
+newWindow = window.open(N, 'contactus','top=60,left=300,toolbar=no,menubar=no,resizable=no,scrollbars=no,status=no,location=no,width=632,height=475');
+}
+//-->
+</script>
+    </div><!--/footerContent-->
+</div><!--/footer-->
+
+
+
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16899173-25']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_setDomainName', '[% domain.domain %]']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+<script language="javascript"> 
+var dex_url 
+dex_url = '<iframe src="http://domdex.com/f?c=417&k='+relatedArray[0][0]+'" width=0 height=0 frameborder=0></iframe>';
+document.write (dex_url); //prints the value of x
+</script>
+
+
+
+</body>
+</html>

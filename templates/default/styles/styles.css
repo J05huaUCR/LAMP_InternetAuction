@@ -1,0 +1,18 @@
+.ppc_wrapper {font-family:arial,verdana,geneva,helvetica,sans-serif;font-size:12px;font-style:normal;color:#000;width:800px;border:0px solid #7892B2; height:auto;}
+.ppc_header_wrapper {background:url(../styles/images/bg-header-gen.gif) repeat-x;height:60px;padding:0;border:0px solid #7892B2;}
+.ppc_header_layout {padding:0px 0 0 15px;text-align:left;}
+.ppc_header_headline {font:bold 19px arial;}
+.ppc_adspace_wrapper {clear: both;margin:0px 0px 10px 0;}
+.ppc_adspace {border:1px solid #7892B2;text-align:left;padding:10px 0 0 20px;}
+.ppc_adspace_results_header {clear:both;padding:0 0 10px 0;}
+.ppc_adspace_results_sponsored {font-size:18px;font-weight:bold;color: #808080;}
+.ppc_adspace_results_sponsored b {color: #3e86c0;}
+.ppc_adspace_results_sponsored_listings {font-size: x-small;}
+.ppc_ad_wrapper {clear:both;padding:0 10px 10px 0;}
+.ppc_ad_title {color:#1122CC;font-size:18px;font-weight:bold;text-decoration:underline;margin:0 0 200px 0;}
+.ppc_ad_url {color:#009933;font-size:12px;text-decoration:none;}
+.ppc_footer_wrapper {clear: both;background:#EBEFFA;border-top:1px solid #7892B2;border-bottom:1px solid #7892B2;padding:20px 0 20px 0;text-align:center;margin:0;font-size:12px;}
+.ppc_terms_nav {margin: 10px 0 0 0;}
+a.ppc_link { color:#3e86c0; text-decoration:none; }
+a.ppc_link:hover { text-decoration:underline; }
+.ppc_searchbar { border:solid 1px #7892B2; height:17px; width:270px;}

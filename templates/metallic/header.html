@@ -1,0 +1,46 @@
+    	<div class="headerContent">
+    		<div class="logoSearch">
+            	<div class="logo">
+                <h1>[% domain.domain %]</h1>
+                Look no further for the best information online
+                </div>
+                <div class="search">
+                    <form action='/domainserve/domainSearch' method='post' class="searchForm">
+                        <input type='text' name='searchterms' size='' class='searchInput'>
+                        <input type="submit" value="Search" class="searchButton"  />
+                        <input type='hidden' name='lg' value='[%lg%]'>
+                        <input type='hidden' name='dn' value='[%dn%]'>
+                        <input type='hidden' name='token' value='[%generaltoken%]'>
+                        <input type='hidden' name='abadtest' value='[%abadtest%]'>
+                        <input type='hidden' name='searchtype' value='user'>[%IF layoutcategoryid %]
+                        <input type='hidden' name='layoutcategory' value='[%layoutcategoryid%]'>[%END%]
+                    </form>
+                </div><!--/search-->
+            </div><!--/logoSearch-->
+            <div class="header_navigation">         
+[% IF portal %]
+
+<ul>
+	<li class='rel'>Related Search :</li>
+    <li><a href='/domainserve/domainSearch?lg=[% lg %]&dn=[% dn %]&searchtype=related_p&searchterms=Auto&categoryid=&token=[% generaltoken %]'>Auto</a></li>
+    <li><a href='/domainserve/domainSearch?lg=[% lg %]&dn=[% dn %]&searchtype=related_p&searchterms=Books&categoryid=&token=[% generaltoken %]'>Books</a></li>
+    <li><a href='/domainserve/domainSearch?lg=[% lg %]&dn=[% dn %]&searchtype=related_p&searchterms=Business&categoryid=&token=[% generaltoken %]'>Business</a></li>
+    <li><a href='/domainserve/domainSearch?lg=[% lg %]&dn=[% dn %]&searchtype=related_p&searchterms=Cameras&categoryid=&token=[% generaltoken %]'>Cameras</a></li>
+    <li><a href='/domainserve/domainSearch?lg=[% lg %]&dn=[% dn %]&searchtype=related_p&searchterms=Cell phones&categoryid=&token=[% generaltoken %]'>Cell phones</a></li>
+</ul>
+
+[% ELSE %] 
+
+<script type="text/javascript">
+document.write("<ul><li class='rel'>Related Search :</li>\n");
+
+	for (y=0; y < 5; y++)
+		{
+			document.write("<li><a href='" + relatedArray[y][1] + "'>" + relatedArray[y][0] + "</a></li>\n");
+		}
+
+document.write("</ul>\n");
+</script>
+[% END %]
+            </div><!--/header_navigation-->
+        </div><!--/headerContent-->
